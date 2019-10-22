@@ -1,0 +1,31 @@
+#!/bin/bash
+
+## Start all apps for TS workday
+
+GDRIVE_TIMESHEET="https://docs.google.com/spreadsheets/d/1SoXz7zIlTG1eT2uRzWcGtiodSR1zFrY4CFT8ndJd7OI"
+GDRIVE_LOG="https://docs.google.com/document/d/1faGH9CwtMqDFXBnuxRREP-iOBTx3MC4d2HbdPgKKZdo"
+APP_EXIT=0
+
+while getopts "lt" opt
+do
+  case "${opt}" in
+    t) google-chrome-stable --app="${GDRIVE_TIMESHEET}" & APP_EXIT=1 ;;
+    l) google-chrome-stable --app="${GDRIVE_LOG}" & APP_EXIT=1 ;;
+    L) google-chrome-stable --app="${HELPDESK_SETUP_LOG}" & APP_EXIT=1 ;;
+    a) echo "Opening all apps" ; APP_EXIT=0 ;;
+  esac
+done
+
+if [ $APP_EXIT -ne 0 ]
+then
+  exit 0
+fi
+
+/usr/bin/google-chrome-stable &
+/usr/bin/google-chrome-stable --app="${GDRIVE_TIMESHEET}" &
+/usr/bin/google-chrome-stable --app="${GDRIVE_LOG}" &
+/snap/bin/slack &
+/usr/bin/terminator &
+
+xcowsay "All set up. Here's some mootivation"
+exit 0
