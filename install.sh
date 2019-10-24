@@ -48,7 +48,6 @@ echo '[INIT_LL][INFO] Installing more essential packages'
   snap install atom --classic
 
 echo '[INIT_LL][INFO] Installing up-to-date Ruby'
-  apt install -yf devtools imagemagick xdotool xclip ntfs-3g ntfs-3g-dev vlc gparted gimp pinta kazam cowsay xcowsay guake
   apt-add-repository ppa:brightbox/ruby-ng
   apt update
   apt install -yf ruby2.3 ruby2.3-dev ruby-bundler
@@ -61,29 +60,29 @@ echo '[INIT_LL][INFO] Syncing filesystem'
 
 echo '-------------------------------------------------------------------------------------'
 
-echo '[INIT_LL][INPUT] Would you like to install less essential packages? [y/n]'
-select pkg_yn in 'y' 'n'; do
+echo '[INIT_LL][INPUT] Would you like to install less essential packages?'
+select pkg_yn in 'Yes' 'No'; do
   case $pkg_yn in
-    y ) apt install -yf telegram-desktop ; snap install android-studio --classic ;;
-    n ) break;;
+    Yes ) apt install -yf telegram-desktop ; snap install android-studio --classic ; break ;;
+    No ) break ;;
   esac
   echo ''
 done
 
-echo '[INIT_LL][INPUT] Would you like to install Gyazo? [y/n]'
-select gyazo_yn in 'y' 'n'; do
+echo '[INIT_LL][INPUT] Would you like to install Gyazo?'
+select gyazo_yn in 'Yes' 'No'; do
   case $gyazo_yn in
-    y ) curl -s https://packagecloud.io/install/repositories/gyazo/gyazo-for-linux/script.deb.sh | bash ; apt install gyazo ;;
-    n ) break ;;
+    Yes ) curl -s https://packagecloud.io/install/repositories/gyazo/gyazo-for-linux/script.deb.sh | bash ; apt install gyazo ; break ;;
+    No ) break ;;
   esac
   echo ''
 done
 
-echo '[INIT_LL][INPUT] Would you like to instal Virtualisation? [y/n]'
-select virt_yn in 'y' 'n'; do
+echo '[INIT_LL][INPUT] Would you like to install Virtualisation?'
+select virt_yn in 'Yes' 'No'; do
   case $virt_yn in
-    y ) apt install -yf virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso virtualbox-guest-utils virtualbox-guest-x11 ;;
-    n ) break ;;
+    Yes ) apt install -yf virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso virtualbox-guest-utils virtualbox-guest-x11 ; break ;;
+    No ) break ;;
   esac
   echo ''
 done

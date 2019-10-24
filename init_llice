@@ -11,7 +11,6 @@ do
   case "${opt}" in
     t) google-chrome-stable --app="${GDRIVE_TIMESHEET}" & APP_EXIT=1 ;;
     l) google-chrome-stable --app="${GDRIVE_LOG}" & APP_EXIT=1 ;;
-    L) google-chrome-stable --app="${HELPDESK_SETUP_LOG}" & APP_EXIT=1 ;;
     a) echo "Opening all apps" ; APP_EXIT=0 ;;
   esac
 done
