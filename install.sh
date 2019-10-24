@@ -91,6 +91,10 @@ done
 
 echo '-------------------------------------------------------------------------------------'
 
+echo '[INIT_LL][INFO] Symlinking init executables to /usr/local/bin'
+  ln -s ${APP_DIR}/init_llts /usr/local/bin/init_llts
+  ln -s ${APP_DIR}/init_llice /usr/local/bin/init_llice
+
 echo '[INIT_LL][INFO] Cleaning up'
   apt remove --purge ubuntu-web-launchers -yf
   apt autoremove
