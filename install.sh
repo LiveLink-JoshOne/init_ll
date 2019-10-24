@@ -3,6 +3,7 @@
 
 APP_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo "[INIT_LL][INFO] App cloned to ${APP_DIR}"
+echo ''
 
 echo '[INIT_LL][INPUT] Please run as root / sudo - CAUTION!'
 echo 'This will install numerous packages and ruby2.3 (and set it as your primary ruby version)'
@@ -27,36 +28,43 @@ deb http://gb.archive.ubuntu.com/ubuntu/ bionic-backports main restricted univer
 deb http://security.ubuntu.com/ubuntu bionic-security main restricted universe multiverse
 # deb-src http://security.ubuntu.com/ubuntu bionic-security main restricted universe multiverse
 EOM
+  echo ''
 
 echo '[INIT_LL][INFO] Updating system'
   apt update
   apt upgrade
+  echo ''
 
 echo '[INIT_LL][INFO] Installing essential packages'
   apt install -yf ntfs-3g ntfs-3g-dev make gcc build-essentials xdotool xclip ubuntu-restricted-* linux-firmware libimage-exiftool-perl libgmp-dev
   apt install -yf libmysqlclient-dev mysql-client mysql-utilities openssh-server sshpass
   apt install -yf vim ncdu htop nbtscan curl gparted imagemagick git terminator cowsay xcowsay gimp pina kazam vlc guake gnome-tweak-tool chrome-gnome-shell simplescreenrecorder
   apt-install -yf ruby ruby-dev ruby-bundler
+  echo ''
 
 echo '[INIT_LL][INFO] Installing secondary package managers'
   apt install -yf snap flatpak
   apt install -yf gnome-software-plugin-flatpak
   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  echo ''
 
 echo '[INIT_LL][INFO] Installing more essential packages'
   snap install slack --classic
   snap install atom --classic
+  echo ''
 
 echo '[INIT_LL][INFO] Installing up-to-date Ruby'
   apt-add-repository ppa:brightbox/ruby-ng
   apt update
   apt install -yf ruby2.3 ruby2.3-dev ruby-bundler
   gem install bundler
+  echo ''
 
 echo '[INIT_LL][INFO] Syncing filesystem'
   sync
   updatedb
   sync
+  echo ''
 
 echo '-------------------------------------------------------------------------------------'
 
@@ -87,12 +95,12 @@ select virt_yn in 'Yes' 'No'; do
   echo ''
 done
 
-
 echo '-------------------------------------------------------------------------------------'
 
 echo '[INIT_LL][INFO] Symlinking init executables to /usr/local/bin'
   ln -s ${APP_DIR}/init_llts /usr/local/bin/init_llts
   ln -s ${APP_DIR}/init_llice /usr/local/bin/init_llice
+  echo ''
 
 echo '[INIT_LL][INFO] Cleaning up'
   apt remove --purge ubuntu-web-launchers -yf
