@@ -38,7 +38,7 @@ echo '[INIT_LL][INFO] Updating system'
 echo '[INIT_LL][INFO] Installing essential packages'
   apt install -yf ntfs-3g ntfs-3g-dev make gcc build-essentials xdotool xclip ubuntu-restricted-* linux-firmware libimage-exiftool-perl libgmp-dev
   apt install -yf libmysqlclient-dev mysql-client mysql-utilities openssh-server sshpass
-  apt install -yf vim ncdu htop nbtscan curl gparted imagemagick git terminator cowsay xcowsay gimp pina kazam vlc guake gnome-tweak-tool chrome-gnome-shell simplescreenrecorder
+  apt install -yf vim ncdu htop nbtscan curl tmux screen gparted imagemagick git terminator cowsay xcowsay gimp pina kazam vlc guake gnome-tweak-tool chrome-gnome-shell simplescreenrecorder
   apt-install -yf ruby ruby-dev ruby-bundler
   echo ''
 
