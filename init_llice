@@ -3,7 +3,7 @@
 ## Start all apps for TS workday
 
 GDRIVE_TIMESHEET="https://docs.google.com/spreadsheets/d/1SoXz7zIlTG1eT2uRzWcGtiodSR1zFrY4CFT8ndJd7OI"
-GDRIVE_LOG="https://docs.google.com/document/d/1vByri39jN9NoyDyx6cAlrytTEQu-_Y9x7xEyrigEsjA"  ## November Log
+GDRIVE_LOG="https://docs.google.com/document/d/1kLxLxG9Eap8lHp7EApbHzGOgnoPhy9MQ79P980XeLlw"  ## Dec Log
 APP_EXIT=0
 
 while getopts "lt" opt
