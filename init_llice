@@ -9,8 +9,8 @@ APP_EXIT=0
 while getopts "lt" opt
 do
   case "${opt}" in
-    t) google-chrome-stable --app="${GDRIVE_TIMESHEET}" & APP_EXIT=1 ;;
-    l) google-chrome-stable --app="${GDRIVE_LOG}" & APP_EXIT=1 ;;
+    t) google-chrome-stable --app="${GDRIVE_TIMESHEET}" --profile-directory=Default & APP_EXIT=1 ;;
+    l) google-chrome-stable --app="${GDRIVE_LOG}" --profile-directory=Default & APP_EXIT=1 ;;
     a) echo "Opening all apps" ; APP_EXIT=0 ;;
   esac
 done
@@ -20,9 +20,9 @@ then
   exit 0
 fi
 
-/usr/bin/google-chrome-stable &
-/usr/bin/google-chrome-stable --app="${GDRIVE_TIMESHEET}" &
-/usr/bin/google-chrome-stable --app="${GDRIVE_LOG}" &
+/usr/bin/google-chrome-stable --profile-directory=Default &
+/usr/bin/google-chrome-stable --app="${GDRIVE_TIMESHEET}" --profile-directory=Default &
+/usr/bin/google-chrome-stable --app="${GDRIVE_LOG}" --profile-directory=Default &
 /snap/bin/slack &
 /usr/bin/terminator &
 
